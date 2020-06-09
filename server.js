@@ -1,9 +1,11 @@
+// Importing dependencies
 import express from 'express'
 const app = express();
-import routes from './routes/index'
-import { connect } from './models/index'
+import routes from './routes/index' // Importing routes controller
+import { connect } from './models/index' // Importing Database connection function
 
-//middlewares
+// <----Middlewares---->
+// For CORS policy
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Credentials", "true");
@@ -14,15 +16,18 @@ app.use(function (req, res, next) {
     );
     next();
 });
+// For Body parser
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+// For API routes
 app.use('/category', routes.category);
 app.use('/product', routes.product);
 
-// Start the app on pre defined port number
+// Start the app on pre defined port number and environment
 const env = process.env.NODE_ENV || 'default';
 const PORT = process.env.PORT || 9090;
 
+// Connecting to database and the starting server if successfull
 connect()
     .then(function () {
         app.listen(PORT, function () {
@@ -30,6 +35,6 @@ connect()
         }).on('error', function (error) {
             console.log("Unable to start app. Error >>>>", error);
         });
-    }).catch(function (error) {
+    }).catch(function (error) { // Catching error here
         console.log("Failed to setup connecton with database.", error);
     });

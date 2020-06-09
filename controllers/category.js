@@ -1,7 +1,8 @@
+// Importing models
 import Category from '../models/Category'
 import Products from '../models/Products'
 
-// To get all Category
+// To get all Categories
 export const getCategory = async (req, res) => {
     try {
         let category = await Category.find()
@@ -18,7 +19,7 @@ export const getCategory = async (req, res) => {
     }
 }
 
-// To create Category
+// To create Category with given name
 export const createCategory = async (req, res) => {
     let { name } = req.body;
     try {
@@ -35,7 +36,7 @@ export const createCategory = async (req, res) => {
     }
 }
 
-// To delete Category and its products
+// To delete Category and its products with given category name
 export const deleteCategory = async (req, res) => {
     let { name } = req.body;
     try {

@@ -1,5 +1,7 @@
+// Importing dependencies
 import mongoose from 'mongoose'
 
+//Creating schema for product
 const productSchema = new mongoose.Schema({
     name: {
         type: String,

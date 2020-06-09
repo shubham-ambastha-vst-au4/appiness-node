@@ -1,3 +1,4 @@
+// Importing models
 import Products from '../models/Products'
 import Category from '../models/Category'
 
@@ -18,7 +19,7 @@ export const getProduct = async (req, res) => {
     }
 }
 
-// To create Products
+// To create Products with given name
 export const createProduct = async (req, res) => {
     let { name, categoryName } = req.body;
     try {
