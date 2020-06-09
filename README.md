@@ -12,9 +12,17 @@
 
 - Getting Categories `GET` `http://localhost:9090/category/`
 - Creating Category `POST` `http://localhost:9090/category/create`
+
+  By sending `{ name: "categoryName" }` in body.
+
 - **Deleting Category `DELETE` `http://localhost:9090/category/delete`**
+
+  By sending `{ name: "categoryName" }` in body.
+
 - Getting Products `GET` `http://localhost:9090/product/`
 - Creating Products `POST` `http://localhost:9090/product/create`
+
+  By sending `{ name: "productName", category: "categoryName" }` in body.
 
 ## Setup and Configuration. 
 
